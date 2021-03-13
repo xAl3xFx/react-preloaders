@@ -1,26 +1,23 @@
-## React Preloaders
+## React Preloaders2
 
 ![React Preloaders](https://raw.githubusercontent.com/VamOSGS/react-preloaders/development/assets/react-preloaders-card.jpg)
 
-![npm](https://img.shields.io/npm/v/react-preloaders.svg?style=flat-square)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-preloaders.svg?style=flat-square)
-![Travis (.org) branch](https://img.shields.io/travis/vamosgs/react-preloaders/development.svg?style=flat-square)
-[![npm downloads](https://img.shields.io/npm/dm/react-preloaders.svg?style=flat-square)](https://www.npmjs.org/package/react-preloaders)
-![NPM](https://img.shields.io/npm/l/react-preloaders.svg?style=flat-square)
-#### [vamosgs.github.io/react-preloaders](https://vamosgs.github.io/react-preloaders/)
+[vamosgs.github.io/react-preloaders](https://vamosgs.github.io/react-preloaders/)
+
+### <span style="color: red">*This project is a fork from [vamosgs.github.io/react-preloaders](https://vamosgs.github.io/react-preloaders/) fixing a bug relating React duplication in the latest React versions.*</span>
 
 ### Setup
 
 Install it:
 
 ```bash
-npm install react-preloaders --save
+npm install react-preloaders2 --save
 ```
 
 or
 
 ```bash
-yarn add react-preloaders --save
+yarn add react-preloaders2 --save
 ```
 
 ### Get Started
@@ -31,7 +28,7 @@ yarn add react-preloaders --save
 
 ```jsx
 import React from 'react';
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 function App() {
   return (
@@ -47,7 +44,7 @@ Here is example how you can use your components as prelaoder:
 
 ```jsx
 import React from 'react';
-import { CustomPreloader } from 'react-preloaders';
+import { CustomPreloader } from 'react-preloaders2';
 
 function App() {
   return (
@@ -101,7 +98,7 @@ function App() {
 Color (hex, rgb, rgba) defines preloaders main color.
 
 ```jsx
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 <Lines color={'#f7f7f7'} />;
 <Lines color={'rgb(158, 38, 102)'} />;
@@ -113,7 +110,7 @@ Background can be just color (hex, rgb), gradient or blured.
 For just colored background pass color(hex, rgb, rgba).
 
 ```jsx
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 <Lines background="#f7f7f7" />;
 ```
@@ -123,7 +120,7 @@ For gradient background pass your gradient.
 You can generate gradients [here](https://cssgradient.io/).
 
 ```jsx
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 <Lines background="linear-gradient(180deg, #f95759 0%, #a62022 100%)" />;
 ```
@@ -131,7 +128,7 @@ import { Lines } from 'react-preloaders';
 For blured background just pass blur.(it's now in beta)
 
 ```jsx
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 <Lines background="blur" />;
 ```
@@ -141,7 +138,7 @@ import { Lines } from 'react-preloaders';
 Time defines how long you want show preloader after page loaded.
 
 ```jsx
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 <Lines time={1800} />;
 ```
@@ -149,7 +146,7 @@ import { Lines } from 'react-preloaders';
 ### If your are using [customLoading](#customLoading) and you don't want play preloader if your loading status false you need to pass time 0
 
 ```jsx
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 <Lines customLoading={loading} time={0} />;
 ```
@@ -162,7 +159,7 @@ By default preloader will close with <b>fade</b> animation.
 #### For <b>slide</b> animation you can choose direction.
 
 ```jsx
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 <Lines animation="slide" />;
 <Lines animation="slide-down" />;
@@ -176,7 +173,7 @@ If in your app somthing loads async you can use preloaders too. For <b>customLoa
 
 ```jsx
 import React, { Component } from 'react';
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 class App {
   constructor() {
@@ -209,7 +206,7 @@ class App {
 
 ```jsx
 import React, { useState, useEffect } from 'react';
-import { Lines } from 'react-preloaders';
+import { Lines } from 'react-preloaders2';
 
 function App() {
   const [loading, setLoading] = useState(true);

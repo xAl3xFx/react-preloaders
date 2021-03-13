@@ -1,6 +1,6 @@
 {
-  "name": "react-preloaders",
-  "version": "3.0.3",
+  "name": "react-preloaders2",
+  "version": "3.0.4",
   "description": "🌌Package for adding preloaders to your React apps",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vamosgs/react-preloaders.git"
+    "url": "https://github.com/xAl3xFx/react-preloaders"
   },
   "keywords": [
     "react",
