@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "3.0.4",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -32,7 +32,18 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "xal3xfx/react-preloaders",
+  "name": "react-preloaders2",
+  "description": "🌌Package for adding preloaders to your React apps",
+  "keywords": [
+    "react",
+    "react-preloaders",
+    "react-preloader",
+    "preloader-package",
+    "preload",
+    "preloader",
+    "loader",
+    "react-component"
+  ],
   "author": "Alex Petrov",
   "module": "dist/react-preloaders.esm.js",
   "size-limit": [
@@ -60,8 +71,5 @@
   },
   "dependencies": {
     "styled-components": "^5.3.5"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
