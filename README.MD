@@ -1,316 +1,160 @@
-## React Preloaders2
+# TSDX React User Guide
 
-![React Preloaders](https://raw.githubusercontent.com/VamOSGS/react-preloaders/development/assets/react-preloaders-card.jpg)
+Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
 
-[vamosgs.github.io/react-preloaders](https://vamosgs.github.io/react-preloaders/)
+> This TSDX setup is meant for developing React component libraries (not apps!) that can be published to NPM. If you’re looking to build a React-based app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
 
-### <span style="color: red">*This project is a fork from [vamosgs.github.io/react-preloaders](https://vamosgs.github.io/react-preloaders/) fixing a bug relating React duplication in the latest React versions.*</span>
+> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
 
-### Setup
+## Commands
 
-Install it:
+TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
 
-```bash
-npm install react-preloaders2 --save
-```
-
-or
+The recommended workflow is to run TSDX in one terminal:
 
 ```bash
-yarn add react-preloaders2 --save
+npm start # or yarn start
 ```
 
-### Get Started
+This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
 
-#### find full preloaders list [here](https://vamosgs.github.io/react-preloaders/).
-
-### Simplest way
-
-```jsx
-import React from 'react';
-import { Lines } from 'react-preloaders2';
-
-function App() {
-  return (
-    <React.Fragment>
-      <YourApp />
-      <Lines />
-    </React.Fragment>
-  );
-}
-```
-### Your components as preloader
-Here is example how you can use your components as prelaoder:
-
-```jsx
-import React from 'react';
-import { CustomPreloader } from 'react-preloaders2';
-
-function App() {
-  return (
-    <React.Fragment>
-      <YourApp />
-         <CustomPreloader>
-                 YOUR CUSTOM PRELOADER COMPONENT
-         </CustomPreloader>
-    </React.Fragment>
-  );
-}
-```
-
-### Properties (Props)
-
-<table>
-  <tr>
-    <th>Prop</th>
-    <th>type</th>
-    <th>Default value</th>
-  </tr>
-  <tr>
-    <th><a href="#color-string">color</a></th>
-    <td>String(hex, rgb,...)</td>
-    <td>#2D2D2D</td>
-  </tr>
-  <tr>
-    <th><a href="#background-string">background</a></th>
-    <td>String(blur, gradient...)</td>
-    <td>#F7F7F7</td>
-  </tr>
-   <tr>
-    <th><a href="#time-number">time</a></th>
-    <td>Number(Milliseconds)</td>
-    <td>1300ms</td>
-  </tr>
-   <tr>
-    <th><a href="#animation-string">animation</a></th>
-    <td>String(fade, slide...)</td>
-    <td>fade</td>
-  </tr>
-  <tr>
-    <th><a href="#customloading-boolean">customLoading</a></th>
-    <td>Boolean</td>
-    <td>undefined</td>
-  </tr>
-</table>
-
-## color (String)
-
-Color (hex, rgb, rgba) defines preloaders main color.
-
-```jsx
-import { Lines } from 'react-preloaders2';
-
-<Lines color={'#f7f7f7'} />;
-<Lines color={'rgb(158, 38, 102)'} />;
-```
-
-## background (String)
-
-Background can be just color (hex, rgb), gradient or blured.
-For just colored background pass color(hex, rgb, rgba).
-
-```jsx
-import { Lines } from 'react-preloaders2';
-
-<Lines background="#f7f7f7" />;
-```
-
-For gradient background pass your gradient.
-
-You can generate gradients [here](https://cssgradient.io/).
-
-```jsx
-import { Lines } from 'react-preloaders2';
-
-<Lines background="linear-gradient(180deg, #f95759 0%, #a62022 100%)" />;
-```
-
-For blured background just pass blur.(it's now in beta)
-
-```jsx
-import { Lines } from 'react-preloaders2';
-
-<Lines background="blur" />;
-```
-
-## time (Number)
-
-Time defines how long you want show preloader after page loaded.
-
-```jsx
-import { Lines } from 'react-preloaders2';
-
-<Lines time={1800} />;
-```
-
-### If your are using [customLoading](#customLoading) and you don't want play preloader if your loading status false you need to pass time 0
-
-```jsx
-import { Lines } from 'react-preloaders2';
-
-<Lines customLoading={loading} time={0} />;
-```
-
-## animation (String)
-
-Now you can choose preloader closing animation, in this version available just 2 animations <b>fade</b> and <b>slide</b>.
-By default preloader will close with <b>fade</b> animation.
-
-#### For <b>slide</b> animation you can choose direction.
-
-```jsx
-import { Lines } from 'react-preloaders2';
-
-<Lines animation="slide" />;
-<Lines animation="slide-down" />;
-<Lines animation="slide-right" />;
-<Lines animation="slide-left" />;
-```
-
-## customLoading (Boolean)
-
-If in your app somthing loads async you can use preloaders too. For <b>customLoading</b> you need to pass your loading status.
-
-```jsx
-import React, { Component } from 'react';
-import { Lines } from 'react-preloaders2';
-
-class App {
-  constructor() {
-    state = {
-      loading: true
-    };
-  }
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => {
-        setState({ loading: false });
-      })
-      .catch(err => {
-        setState({ loading: false });
-      });
-  }
-  render() {
-    return (
-      <React.Fragment>
-        <YourApp />
-        <Lines customLoading={loading} />
-      </React.Fragment>
-    );
-  }
-}
-```
-
-### Example with hooks
-
-```jsx
-import React, { useState, useEffect } from 'react';
-import { Lines } from 'react-preloaders2';
-
-function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => {
-        setLoading(false);
-      })
-      .catch(err => {
-        setLoading(false);
-      });
-  }, []);
-
-  return (
-    <React.Fragment>
-      <YourApp />
-      <Lines customLoading={loading} />
-    </React.Fragment>
-  );
-}
-```
-
-#### CSS loading (under v3.x.x) methods for old versions
-
-Packages you need
+Then run the example inside another:
 
 ```bash
-style-loader css-loader
+cd example
+npm i # or yarn to install dependencies
+npm start # or yarn start
 ```
 
-more if you want to extract css you need
+The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**, we use [Parcel's aliasing](https://parceljs.org/module_resolution.html#aliases).
 
-#### Extract ( webpack 3.x )
+To do a one-off build, use `npm run build` or `yarn build`.
 
-```bash
-extract-text-webpack-plugin
+To run tests, use `npm test` or `yarn test`.
+
+## Configuration
+
+Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
+
+### Jest
+
+Jest tests are set up to run with `npm test` or `yarn test`.
+
+### Bundle analysis
+
+Calculates the real cost of your library using [size-limit](https://github.com/ai/size-limit) with `npm run size` and visulize it with `npm run analyze`.
+
+#### Setup Files
+
+This is the folder structure we set up for you:
+
+```txt
+/example
+  index.html
+  index.tsx       # test your component here in a demo app
+  package.json
+  tsconfig.json
+/src
+  index.tsx       # EDIT THIS
+/test
+  blah.test.tsx   # EDIT THIS
+.gitignore
+package.json
+README.md         # EDIT THIS
+tsconfig.json
 ```
 
-#### Extract ( webpack 4.x )
+#### React Testing Library
 
-```bash
-mini-css-extract-plugin
-```
+We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
 
-#### Add this to your webpack if you don't have css loader yet
+### Rollup
+
+TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+
+### TypeScript
+
+`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
+
+## Continuous Integration
+
+### GitHub Actions
+
+Two actions are added by default:
+
+- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
+- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
+
+## Optimizations
+
+Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
 
 ```js
-{
-  test: /\.css$/,
-  use: [ 'style-loader', 'css-loader' ]
+// ./types/index.d.ts
+declare var __DEV__: boolean;
+
+// inside your code...
+if (__DEV__) {
+  console.log('foo');
 }
 ```
 
-#### Extract ( webpack 3.x )
+You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
 
-```js
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractCSS = new ExtractTextPlugin('style.[hash].css');
+## Module Formats
 
-module.exports = {
-  plugins: [extractCSS],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: extractCSS.extract(['css-loader', 'postcss-loader'])
-      }
-    ]
-  }
-};
+CJS, ESModules, and UMD module formats are supported.
+
+The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+
+## Deploying the Example Playground
+
+The Playground is just a simple [Parcel](https://parceljs.org) app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
+
+```bash
+cd example # if not already in the example folder
+npm run build # builds to dist
+netlify deploy # deploy the dist folder
 ```
 
-#### Extract ( webpack 4.x )
+Alternatively, if you already have a git repo connected, you can set up continuous deployment with Netlify:
 
-```js
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-module.exports = {
-  plugins: [
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css'
-    })
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              // you can specify a publicPath here
-              // by default it use publicPath in webpackOptions.output
-              publicPath: '../'
-            }
-          },
-          'css-loader'
-        ]
-      }
-    ]
-  }
-};
+```bash
+netlify init
+# build command: yarn build && cd example && yarn && yarn build
+# directory to deploy: example/dist
+# pick yes for netlify.toml
 ```
+
+## Named Exports
+
+Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+
+## Including Styles
+
+There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
+
+For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
+
+## Publishing to NPM
+
+We recommend using [np](https://github.com/sindresorhus/np).
+
+## Usage with Lerna
+
+When creating a new package with TSDX within a project set up with Lerna, you might encounter a `Cannot resolve dependency` error when trying to run the `example` project. To fix that you will need to make changes to the `package.json` file _inside the `example` directory_.
+
+The problem is that due to the nature of how dependencies are installed in Lerna projects, the aliases in the example project's `package.json` might not point to the right place, as those dependencies might have been installed in the root of your Lerna project.
+
+Change the `alias` to point to where those packages are actually installed. This depends on the directory structure of your Lerna project, so the actual path might be different from the diff below.
+
+```diff
+   "alias": {
+-    "react": "../node_modules/react",
+-    "react-dom": "../node_modules/react-dom"
++    "react": "../../../node_modules/react",
++    "react-dom": "../../../node_modules/react-dom"
+   },
+```
+
+An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)

@@ -1,71 +1,67 @@
 {
-  "name": "react-preloaders2",
-  "version": "3.0.4",
-  "description": "🌌Package for adding preloaders to your React apps",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
-  "author": "Gegham Samvelyan (VamOSGS)",
+  "version": "0.1.0",
   "license": "MIT",
-  "scripts": {
-    "deploy": "cd ./demo && yarn deploy",
-    "build": "webpack",
-    "build:dev": "webpack --watch",
-    "start:demo": "cd ./demo && yarn start",
-    "lint": "eslint src",
-    "lint_fix": "eslint src --fix",
-    "test": "jest",
-    "build:exp": "rm -rf lib && cross-env NODE_ENV=production ./node_modules/.bin/babel src/ --out-dir lib --ignore ./src/__test__"
-  },
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "setupFiles": [
-      "./src/setupTests.js"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xAl3xFx/react-preloaders"
-  },
-  "keywords": [
-    "react",
-    "react-preloaders",
-    "react-preloader",
-    "preloader-package",
-    "preload",
-    "preloader",
-    "loader",
-    "react-component"
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
   ],
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "styled-components": "^5.0.0-beta.0"
+  "engines": {
+    "node": ">=10"
   },
-  "homepage": "https://vamosgs.github.io/react-preloaders/",
-  "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.6",
-    "babel-preset-react": "^6.24.1",
-    "cross-env": "^5.2.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "enzyme-to-json": "^3.3.5",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jest": "^22.6.4",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.11.0",
-    "jest": "^24.8.0",
-    "webpack": "^4.33.0",
-    "webpack-cli": "^3.3.4"
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   },
   "peerDependencies": {
-    "react": "17.0.1"
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "xal3xfx/react-preloaders",
+  "author": "Alex Petrov",
+  "module": "dist/react-preloaders.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/react-preloaders.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/react-preloaders.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.0.1",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "husky": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "size-limit": "^8.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "styled-components": "^5.3.5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

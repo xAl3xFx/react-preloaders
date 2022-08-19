@@ -1,10 +1,5 @@
-/node_modules
-/.idea
-yarn-error.log
+*.log
+.DS_Store
+node_modules
+.cache
 dist
-demo/node_modules
-demo/dist
-demo/.env
-build
-examples/*/node_modules
-lib
