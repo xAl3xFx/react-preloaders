@@ -26,6 +26,10 @@
       "pre-commit": "tsdx lint"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xAl3xFx/react-preloaders"
+  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
