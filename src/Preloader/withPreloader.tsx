@@ -18,7 +18,6 @@ const defaultProps : WithPreloaderProps = {
 }
 
 export const withPreloader = (Element : React.ReactNode) => (props: WithPreloaderProps)  => {
-console.log('props', props)
     const propsOrDefault = {...defaultProps, ...props};
     return <>
         {/*@ts-ignore*/}
